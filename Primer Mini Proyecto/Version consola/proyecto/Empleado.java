@@ -1,4 +1,4 @@
-package MiniProyecto1;
+package proyecto;
 
 public class Empleado {
 	private int idEmpleado;
@@ -28,6 +28,10 @@ public class Empleado {
 
 	public int getEdad() {
 		return this.edad;
+	}
+	
+	public void setEdad(int edad) {
+		this.edad=edad;
 	}
 
 	public double getSalario() {
