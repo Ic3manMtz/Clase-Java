@@ -1,0 +1,43 @@
+	scrollPane = new JScrollPane();
+	scrollPane.setBounds(10, 11, 764, 539);
+	contentPane.add(scrollPane);
+	
+	List<JLabel> cartas = new ArrayList<>();
+	
+	for(Card card:cardGame.getDeck()) {
+		if(card.getPalo()==Palos.corazones) {
+			JLabel lblNewLabel = new JLabel("");
+			lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+			lblNewLabel.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/ejercicios/icons/corazon.png")));
+			cartas.add(lblNewLabel);
+		}
+		if(card.getPalo()==Palos.diamantes) {
+			JLabel lblNewLabel = new JLabel("");
+			lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+			lblNewLabel.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/ejercicios/icons/diamante.png")));
+			cartas.add(lblNewLabel);
+		}
+		if(card.getPalo()==Palos.picas) {
+			JLabel lblNewLabel = new JLabel("");
+			lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+			lblNewLabel.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/ejercicios/icons/pica.png")));
+			cartas.add(lblNewLabel);
+		}
+		if(card.getPalo()==Palos.treboles) {
+			JLabel lblNewLabel = new JLabel("");
+			lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+			lblNewLabel.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/ejercicios/icons/trebol.png")));
+			cartas.add(lblNewLabel);
+		}
+		
+		list = new JList<>(cartas.toArray(new JLabel[0]));
+		
+		list.setCellRenderer(new ListCellRenderer<JLabel>() {
+            @Override
+            public Component getListCellRendererComponent(JList<? extends JLabel> list, JLabel value, int index, boolean isSelected, boolean cellHasFocus) {
+                return value;
+            }
+        });
+		
+		scrollPane.setViewportView(list);
+	}
